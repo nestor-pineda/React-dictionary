@@ -11,6 +11,7 @@ const App = () => {
     origin: "",
     definition: "",
     example: "",
+    synonyms: [],
   });
 
   const searchword = () => {
@@ -22,6 +23,7 @@ const App = () => {
         origin: res.data[0].origin,
         definition: res.data[0].meanings[0].definitions[0].definition,
         example: res.data[0].meanings[0].definitions[0].example,
+        synonyms: res.data[0].meanings[0].definitions[0].synonyms,
       });
       setWordChosen(true);
       console.log(res.data[0]);
@@ -52,6 +54,16 @@ const App = () => {
             <p>Example: {word.example}</p>
             <p>Origin: {word.origin}</p>
             <p>{word.audio}</p>
+            <div>
+              synonyms:
+              {word.synonyms.map((item) => {
+                return (
+                  <div key={item}>
+                    <h4>{item},</h4>
+                  </div>
+                );
+              })}
+            </div>
           </>
         )}
       </div>
