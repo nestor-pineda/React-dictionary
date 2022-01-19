@@ -1,6 +1,8 @@
 import "./App.css";
 import { useState } from "react";
 import Axios from "axios";
+import ReactAudioPlayer from "react-audio-player";
+
 const App = () => {
   const [wordName, setWordName] = useState("");
   const [wordChosen, setWordChosen] = useState(false);
@@ -53,9 +55,11 @@ const App = () => {
             <p>Definition: {word.definition}</p>
             <p>Example: {word.example}</p>
             <p>Origin: {word.origin}</p>
-            <p>{word.audio}</p>
+
+            <ReactAudioPlayer src={word.audio} controls />
+
             <div>
-              synonyms:
+              <p>Synonyms:</p>
               {word.synonyms.map((item) => {
                 return (
                   <div key={item}>
