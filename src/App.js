@@ -1,7 +1,7 @@
-import "./App.css";
 import { useState } from "react";
 import Axios from "axios";
 import ReactAudioPlayer from "react-audio-player";
+import "./App.scss";
 
 const App = () => {
   const [wordName, setWordName] = useState("");
@@ -35,7 +35,7 @@ const App = () => {
   return (
     <div className="App">
       <div className="TitleSection">
-        <h1>Word Search Dictionary</h1>
+        <h1 className="title">Word Search Dictionary</h1>
         <input
           type="text"
           onChange={(event) => {
@@ -43,18 +43,36 @@ const App = () => {
           }}
           value={wordName.toLowerCase()}
         />
-        <div>{wordName && <button onClick={searchword}>Search Word</button>}</div>
+        <div>
+          {wordName && (
+            <button className="search" onClick={searchword}>
+              Search Word
+            </button>
+          )}
+        </div>
       </div>
       <div className="DisplaySection">
         {!wordChosen ? (
           <h1> Please type a word </h1>
         ) : (
           <>
-            <h1>{word.name}</h1>
-            <h3>Number: #{word.phonetic}</h3>
-            <p>Definition: {word.definition}</p>
-            <p>Example: {word.example}</p>
-            <p>Origin: {word.origin}</p>
+            <h2 className="word">{word.name}</h2>
+            <p className="result-text">
+              <span className="result-title">Definition: </span>
+              {word.definition}
+            </p>
+            <p className="result-text">
+              <span className="result-title">Example: </span>
+              {word.example}
+            </p>
+            <p className="result-text">
+              <span className="result-title">Origin: </span>
+              {word.origin}
+            </p>
+            <p className="result-text">
+              <span className="result-title">Phonetic: </span>
+              {word.phonetic}
+            </p>
 
             <ReactAudioPlayer src={word.audio} controls />
 

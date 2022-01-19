@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+
+* {
+  font-family: "Merriweather", serif;
+  font-size: 16px;
+}
+body {
+  overflow-x: hidden;
+}
+.App {
+  background-color: #d27575;
+  display: flex;
+  flex-flow: column;
+  width: 100vw;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 1rem;
+  min-height: 100vh;
+  .TitleSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1rem;
+    h1.title {
+      font-size: 2.5em;
+      text-align: center;
+      color: aliceblue;
+    }
+    input[type="text"] {
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 300px;
+      padding: 10px 20px;
+      border-radius: 50px;
+      border: none !important;
+      outline: none;
+      background-color: #d27575;
+      box-shadow: 6px 6px 16px 0 #b25353, -2px -2px 18px 0 #f1a6a6;
+      font-family: "Lato", sans-serif;
+      font-size: 1em;
+      color: #ffe0e0;
+    }
+    button.search {
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 300px;
+      padding: 10px 20px;
+      border-radius: 50px;
+      border: none !important;
+      outline: none;
+      background-color: #49448d;
+      box-shadow: 6px 6px 16px 0 #b25353, -2px -2px 18px 0 #f1a6a6;
+      font-family: "Lato", sans-serif;
+      font-size: 1em;
+      color: #d3d1f8;
+      margin-top: 30px;
+    }
+  }
+  .DisplaySection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    h5.type {
+      font-family: "Lato", sans-serif;
+      text-align: center;
+    }
+    h2.word {
+      font-size: 2em;
+      color: #ffe0e0;
+    }
+    p.result-text {
+      font-family: "Lato", sans-serif;
+      text-align: center;
+      font-size: 1em;
+      color: #ffe0e0;
+      .result-title {
+        font-weight: 700;
+      }
+    }
+  }
+}
