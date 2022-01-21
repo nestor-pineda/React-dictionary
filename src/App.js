@@ -6,6 +6,7 @@ import "./App.scss";
 const App = () => {
   const [wordName, setWordName] = useState("");
   const [wordChosen, setWordChosen] = useState(false);
+  // const [loading, setLoading] = useState(true);
   const [word, setWord] = useState({
     name: "",
     phonetic: "",
@@ -18,6 +19,7 @@ const App = () => {
 
   const searchword = () => {
     Axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${wordName}`).then((res) => {
+      // setLoading(false);
       setWord({
         name: wordName,
         phonetic: res.data[0].phonetic,
@@ -28,6 +30,7 @@ const App = () => {
         synonyms: res.data[0].meanings[0].definitions[0].synonyms,
       });
       setWordChosen(true);
+
       console.log(res.data[0]);
     });
   };
@@ -51,9 +54,12 @@ const App = () => {
           )}
         </div>
       </div>
+      {/* {loading && <div>Loading...</div>} */}
       <div className="DisplaySection">
         {!wordChosen ? (
-          <h1> Please type a word </h1>
+          <div className="typewriter">
+            <h1>Please, type a word to search...</h1>
+          </div>
         ) : (
           <>
             <h2 className="word">{word.name}</h2>
@@ -76,12 +82,12 @@ const App = () => {
 
             <ReactAudioPlayer src={word.audio} controls />
 
-            <div>
-              <p>Synonyms:</p>
+            <div className="synonyms">
+              <p>Synonyms:&nbsp;</p>
               {word.synonyms.map((item) => {
                 return (
-                  <div key={item}>
-                    <h4>{item},</h4>
+                  <div className="synonym" key={item}>
+                    <p>{item},&nbsp;</p>
                   </div>
                 );
               })}
