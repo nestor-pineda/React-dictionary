@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# React Dictionary
+
+![Placeholder Image](preview.gif)
+
+ I've created this Word Dictionary using https://dictionaryapi.dev/ API. I've used useState and useEffect Hooks. I've given it a minimalistic "Neumorphism" look.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
